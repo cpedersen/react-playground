@@ -10,6 +10,7 @@ class App extends Component {
         <h1>YOUR APPLICATION NAME!</h1>
         <Messages name="Messages" unread={0}/>
         <Messages name="Notifications" unread={10}/>
+        <TheDate/>
       </div>
     );
   }
