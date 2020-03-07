@@ -1,5 +1,10 @@
+.accordian-header {
+    font-size: 30px;
+    padding-right: 0;
+}
+
 button {
-    background: darkgray;
+    background: #ff9999;;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -11,16 +16,16 @@ button {
     box-shadow: 0 9px #999;
     border: none;
     outline: none;
-    /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
 }
 
-ul {
-    background: #ff9999;
-    padding: 20px 20px 0px 0px;
+div {
+    background: #ffe5e5;
+    padding: 5px 5px 5px 5px;
+    border-radius: 15px;
   }
 
 li {
-    list-style-type: circle;
+    list-style-type: none;
     list-style-position: inside;
     margin: 0 5 0 5;
     padding: 5 5 5 5;

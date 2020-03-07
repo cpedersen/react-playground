@@ -8,6 +8,7 @@ import HelloWorld from './state-drills/HelloWorld';
 import Bomb from './state-drills/Bomb';
 import RouletteGun from './state-drills/RouletteGun';
 import Accordion from './state-drills/Accordian';
+import './state-drills/Accordian.css';
 import './App.css';
 
 /*class App extends Component {
@@ -113,13 +114,11 @@ const sections = [
   },
 ];
 
-
-
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <h2>Accordion</h2>
+        <h2 className="accordian-header">Accordion: </h2>
         <Accordion sections={sections} />
       </div>
     );

@@ -18,22 +18,24 @@ class Accordian extends Component {
     render() {
         console.log(this.state);
         return (
-            <ul className='Accordion'>
-                {this.props.sections.map((section, idx) => {
-                    return (
-                        <li>
-                            <button onClick={() => this.renderItem(idx)}>
-                                {section.title}
-                            </button>
-                            {this.state.displayPara === idx &&
-                                <p>
-                                    {section.content}
-                                </p>
-                            }
-                        </li>
-                    )
-                 })}
-            </ul>     
+            <div>
+                <ul className='Accordion'>
+                    {this.props.sections.map((section, idx) => {
+                        return (
+                            <li>
+                                <button onClick={() => this.renderItem(idx)}>
+                                    {section.title}
+                                </button>
+                                {this.state.displayPara === idx &&
+                                    <p>
+                                        {section.content}
+                                    </p>
+                                }
+                            </li>
+                        )
+                    })}
+                </ul>     
+            </div>
         )   
     }
 
