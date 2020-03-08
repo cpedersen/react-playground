@@ -23,25 +23,25 @@ const sectionProps = [
 describe(`Accordian Component`, () => {
     // array of objects, each with a name and content
   
-    it.skip('renders an empty ul and li when the sections prop is not supplied', () => {
+    it('renders an empty ul and li when the sections prop is not supplied', () => {
         const wrapper = shallow(<Accordian />);
         expect(toJson(wrapper)).toMatchSnapshot();
 
     });
 
-    it.skip('renders no sections as active by default', () => {
+    it('renders no sections as active by default', () => {
         const wrapper = shallow(<Accordian sections={sectionProps} />);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('opens any clicked section', () => {
-        const wrapper = shallow(<Accordion sections={sectionsProp} />)
-        wrapper.find('button').at(1).simulate('click')
-        expect(toJson(wrapper)).toMatchSnapshot()
+        const wrapper = shallow(<Accordian sections={sectionProps} />);
+        wrapper.find('button').at(1).simulate('click');
+        expect(toJson(wrapper)).toMatchSnapshot();
     })
 
-    it.skip('only opens the last section when multiple sections have been clicked', () => {
-        const wrapper = shallow(<Accordion sections={sectionProps} />);
+    it('only opens the last section when multiple sections have been clicked', () => {
+        const wrapper = shallow(<Accordian sections={sectionProps} />);
         wrapper.find('button').at(1).simulate('click');
         wrapper.find('button').at(2).simulate('click');
         expect(toJson(wrapper)).toMatchSnapshot();
