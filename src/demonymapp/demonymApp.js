@@ -4,7 +4,7 @@ import './demonymApp.css'
 import Demonym from './demonym';
 import CountrySelector from './countrySelector';
 
-
+//Step #1 - Pass required data down to 2 child components demonym and countrySelector
 /*class DemonymApp extends Component {
   render() {
     return (
@@ -17,6 +17,7 @@ import CountrySelector from './countrySelector';
 }*/
 
 
+//#Step 2
 class DemonymApp extends Component {
 
   constructor(props) {
@@ -27,32 +28,13 @@ class DemonymApp extends Component {
     };
   }
 
-  /*componentDidMount() {
-    fetch('https://country.register.gov.uk/records.json?page-size=5000')
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      });
-  }*/
-
-  /*componentDidMount() {
-    fetch('https://country.register.gov.uk/records.json?page-size=5000')
-      .then(response => response.json())
-      .then(data => {
-        const countries = Object.keys(data)
-              .map(key => data[key].item[0]);
-        console.log(countries);
-      });
-  }*/
-
   setSelected(selected) {
     this.setState({
       selected
     });
   }
 
-
-  componentDidMount() {
+  /*componentDidMount() {
     fetch('https://country.register.gov.uk/records.json?page-size=5000')
       .then(response => response.json())
       .then(data => {
@@ -62,7 +44,33 @@ class DemonymApp extends Component {
           countries
         });
       });
+  }*/
+
+
+  //fetch('https://country.register.gov.uk/recordsWRONG.json?page-size=5000')
+  componentDidMount() {
+    fetch('https://country.register.gov.uk/records.json?page-size=5000')
+      .then(response => {
+        console.log('About to check for errors');
+        if(!response.ok) {
+          console.log('An error did occur, let\'s throw an error.');
+          throw new Error('Something went wrong'); 
+        }
+        return response; 
+      })
+      .then(response => response.json())
+      .then(data => {
+        const countries = Object.keys(data)
+              .map(key => data[key].item[0]);
+        this.setState({
+          countries
+        });
+      })
+      .catch(err => {
+        console.log('Handling the error here.', err);
+      });
   }
+
 
   render() {
     //Conditionally render the Demonym as long as a country is selected
@@ -70,12 +78,9 @@ class DemonymApp extends Component {
           ? <Demonym name={this.state.selected['citizen-names']} country={this.state.selected.name}/>
           : <div className="demonym_app__placeholder">Select a country above</div>;
 
-    /*return (
-      <div className="demonym_app">
-        <CountrySelector countries={this.state.countries}/>
-        {demon}
-      </div>
-    );*/
+    const error = this.state.error
+          ? <div className="demonym_app__error">{this.state.error}</div>
+          : "";
 
     return (
         <div className="demonym_app">
