@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import './App.css';
 import Messages from './Messages';
 import TheDate from './state/TheDate';
@@ -9,7 +9,7 @@ import Bomb from './state-drills/Bomb';
 import RouletteGun from './state-drills/RouletteGun';
 import Accordion from './state-drills/Accordian';
 import './state-drills/Accordian.css';
-import './App.css';
+import './App.css';*/
 
 /*class App extends Component {
   render() {
@@ -90,7 +90,7 @@ import './App.css';
 }*/
 
 
-const tabsProp = [
+/*const tabsProp = [
   { name: 'First tab',
     content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam exercitationem quos consectetur expedita consequatur. Fugit, sapiente aspernatur corporis velit, dolor eum reprehenderit provident ipsam, maiores incidunt repellat! Facilis, neque doloremque.' },
   { name: 'Second tab',
@@ -125,7 +125,7 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App;*/
 
 
 
@@ -145,3 +145,31 @@ export default App;
     );
   }
 }*/
+
+
+//Use the following with demonymApp
+import React, { Component } from 'react';
+import './App.css';
+import DemonynApp from './demonymapp/demonymApp';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        Hello
+      </div>
+    );
+  }
+}
+
+/*class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <DemonynApp/>
+      </div>
+    );
+  }
+}*/
+
+export default App;
